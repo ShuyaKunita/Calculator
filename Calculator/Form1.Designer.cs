@@ -36,21 +36,22 @@
             this.MultiplicationButton = new System.Windows.Forms.Button();
             this.ResetButton = new System.Windows.Forms.Button();
             this.resultLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // numberBox1
             // 
-            this.numberBox1.Location = new System.Drawing.Point(77, 103);
+            this.numberBox1.Location = new System.Drawing.Point(90, 37);
             this.numberBox1.Name = "numberBox1";
-            this.numberBox1.Size = new System.Drawing.Size(100, 22);
+            this.numberBox1.Size = new System.Drawing.Size(155, 22);
             this.numberBox1.TabIndex = 0;
-            this.numberBox1.TextChanged += new System.EventHandler(this.numberBox1_TextChanged);
             // 
             // numberBox2
             // 
-            this.numberBox2.Location = new System.Drawing.Point(240, 103);
+            this.numberBox2.Location = new System.Drawing.Point(90, 103);
             this.numberBox2.Name = "numberBox2";
-            this.numberBox2.Size = new System.Drawing.Size(100, 22);
+            this.numberBox2.Size = new System.Drawing.Size(152, 22);
             this.numberBox2.TabIndex = 1;
             // 
             // AdditionButton
@@ -106,17 +107,41 @@
             // resultLabel
             // 
             this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(437, 103);
+            this.resultLabel.Location = new System.Drawing.Point(262, 77);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(37, 15);
+            this.resultLabel.Size = new System.Drawing.Size(67, 15);
             this.resultLabel.TabIndex = 7;
-            this.resultLabel.Text = "結果";
+            this.resultLabel.Text = "計算結果";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.label1.Location = new System.Drawing.Point(33, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 17);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "数値1";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.label2.Location = new System.Drawing.Point(33, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 17);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "数値2";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.MultiplicationButton);
@@ -142,6 +167,8 @@
         private System.Windows.Forms.Button MultiplicationButton;
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.Label resultLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

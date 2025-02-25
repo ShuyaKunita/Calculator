@@ -12,15 +12,15 @@ namespace Calculator
 {
     public partial class Form1 : Form
     {
+        private double num1;
+        private double num2;
         public Form1()
         {
             InitializeComponent();
         }
 
         private void AdditionButton_Click(object sender, EventArgs e)
-        {
-            double num1;
-            double num2;
+        {            
             bool success1 = double.TryParse(numberBox1.Text, out num1);
             bool success2 = double.TryParse(numberBox2.Text, out num2);
 
@@ -37,8 +37,6 @@ namespace Calculator
 
         private void SubtractionButton_Click(object sender, EventArgs e)
         {
-            double num1;
-            double num2;
             bool success1 = double.TryParse(numberBox1.Text, out num1);
             bool success2 = double.TryParse(numberBox2.Text, out num2);
 
@@ -56,8 +54,6 @@ namespace Calculator
 
         private void DivisionButton_Click(object sender, EventArgs e)
         {
-            double num1;
-            double num2;
             bool success1 = double.TryParse(numberBox1.Text, out num1);
             bool success2 = double.TryParse(numberBox2.Text, out num2);
 
@@ -74,8 +70,6 @@ namespace Calculator
 
         private void MultiplicationButton_Click(object sender, EventArgs e)
         {
-            double num1;
-            double num2;
             bool success1 = double.TryParse(numberBox1.Text, out num1);
             bool success2 = double.TryParse(numberBox2.Text, out num2);
 
@@ -95,11 +89,6 @@ namespace Calculator
             numberBox1.Text = null;
             numberBox2.Text = null;
             resultLabel.Text = "結果";
-        }
-
-        private void numberBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
