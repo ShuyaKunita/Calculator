@@ -44,6 +44,7 @@
             this.numberBox1.Name = "numberBox1";
             this.numberBox1.Size = new System.Drawing.Size(100, 22);
             this.numberBox1.TabIndex = 0;
+            this.numberBox1.TextChanged += new System.EventHandler(this.numberBox1_TextChanged);
             // 
             // numberBox2
             // 
