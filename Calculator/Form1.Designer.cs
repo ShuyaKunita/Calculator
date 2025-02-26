@@ -271,9 +271,9 @@
             this.MemoryLabel.AutoSize = true;
             this.MemoryLabel.Location = new System.Drawing.Point(557, 45);
             this.MemoryLabel.Name = "MemoryLabel";
-            this.MemoryLabel.Size = new System.Drawing.Size(57, 15);
+            this.MemoryLabel.Size = new System.Drawing.Size(15, 15);
             this.MemoryLabel.TabIndex = 21;
-            this.MemoryLabel.Text = "Memory";
+            this.MemoryLabel.Text = "0";
             // 
             // MPlusButton
             // 
@@ -293,6 +293,7 @@
             this.MMInusButton.TabIndex = 23;
             this.MMInusButton.Text = "M-";
             this.MMInusButton.UseVisualStyleBackColor = true;
+            this.MMInusButton.Click += new System.EventHandler(this.MMInusButton_Click);
             // 
             // MRButton
             // 
@@ -311,6 +312,7 @@
             this.MCButton.TabIndex = 25;
             this.MCButton.Text = "MC";
             this.MCButton.UseVisualStyleBackColor = true;
+            this.MCButton.Click += new System.EventHandler(this.MCButton_Click);
             // 
             // Form1
             // 

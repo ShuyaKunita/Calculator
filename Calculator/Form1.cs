@@ -230,5 +230,24 @@ namespace Calculator
                 MessageBox.Show("数字以外が入力されています");
             }
         }
+
+        private void MMInusButton_Click(object sender, EventArgs e)
+        {
+            bool success = double.TryParse(numberBox1.Text, out num1);
+            if (success)
+            {
+                var result = double.Parse(MemoryLabel.Text) - double.Parse(numberBox1.Text);
+                MemoryLabel.Text = result.ToString();
+            }
+            else
+            {
+                MessageBox.Show("数字以外が入力されています");
+            }
+        }
+
+        private void MCButton_Click(object sender, EventArgs e)
+        {
+            MemoryLabel.Text = 0.ToString();
+        }
     }
 }
