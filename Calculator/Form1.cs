@@ -14,13 +14,30 @@ namespace Calculator
     {
         private double num1;
         private double num2;
+        private int num;
         public Form1()
         {
             InitializeComponent();
         }
 
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            numberBox1.Text = null;
+            numberBox2.Text = null;
+            resultLabel.Text = "結果";
+        }
+        private void IntoXButton_Click(object sender, EventArgs e)
+        {
+            numberBox1.Text = resultLabel.Text;
+        }
+
+        private void IntoYButton_Click(object sender, EventArgs e)
+        {
+            numberBox2.Text = resultLabel.Text;
+        }
+
         private void AdditionButton_Click(object sender, EventArgs e)
-        {            
+        {
             bool success1 = double.TryParse(numberBox1.Text, out num1);
             bool success2 = double.TryParse(numberBox2.Text, out num2);
 
@@ -84,11 +101,134 @@ namespace Calculator
             }
         }
 
-        private void ResetButton_Click(object sender, EventArgs e)
+
+        private void FactrialButton_Click(object sender, EventArgs e)
         {
-            numberBox1.Text = null;
-            numberBox2.Text = null;
-            resultLabel.Text = "結果";
+            bool success = int.TryParse(numberBox1.Text, out num);
+            if (success && num < 11)
+            {
+                int fac = 1;
+                int dNumber = num;
+                for (int i = 0; i < num; i++)
+                {
+                    fac *= dNumber;
+                    dNumber--;
+                }
+                resultLabel.Text = fac.ToString();
+            }
+            else
+            {
+                MessageBox.Show("11以上または数字以外が入力されています");
+            }
+        }
+
+        private void SquareRoot_Click(object sender, EventArgs e)
+        {
+            bool success = double.TryParse(numberBox1.Text, out num1);
+            if (success)
+            {
+                resultLabel.Text = Math.Sqrt(num1).ToString();
+            }
+            else
+            {
+                MessageBox.Show("数字以外が入力されています");
+            }
+        }
+
+        private void PowButton_Click(object sender, EventArgs e)
+        {
+            bool success1 = double.TryParse(numberBox1.Text, out num1);
+            bool success2 = double.TryParse(numberBox2.Text, out num2);
+
+            if (success1 && success2)
+            {
+                resultLabel.Text = Math.Pow(num1, num2).ToString();
+            }
+            else
+            {
+                MessageBox.Show("数字以外が入力されています");
+            }
+        }
+
+        private void YRootButton_Click(object sender, EventArgs e)
+        {
+            bool success1 = double.TryParse(numberBox1.Text, out num1);
+            bool success2 = double.TryParse(numberBox2.Text, out num2);
+
+            if (success1 && success2)
+            {
+                resultLabel.Text = Math.Pow(num1, 1.0 / num2).ToString();
+            }
+            else
+            {
+                MessageBox.Show("数字以外が入力されています");
+            }
+        }
+
+        private void Log10Button_Click(object sender, EventArgs e)
+        {
+            bool success = double.TryParse(numberBox1.Text, out num1);
+            if (success)
+            {
+                resultLabel.Text = Math.Log10(num1).ToString();
+            }
+            else
+            {
+                MessageBox.Show("数字以外が入力されています");
+            }
+        }
+
+        private void SinButton_Click(object sender, EventArgs e)
+        {
+            bool success = double.TryParse(numberBox1.Text, out num1);
+            if (success)
+            {
+                resultLabel.Text = Math.Sign(num1).ToString();
+            }
+            else
+            {
+                MessageBox.Show("数字以外が入力されています");
+            }
+        }
+
+        private void CosButton_Click(object sender, EventArgs e)
+        {
+            bool success = double.TryParse(numberBox1.Text, out num1);
+            if (success)
+            {
+                resultLabel.Text = Math.Cos(num1).ToString();
+            }
+            else
+            {
+                MessageBox.Show("数字以外が入力されています");
+            }
+        }
+
+        private void TanButton_Click(object sender, EventArgs e)
+        {
+            bool success = double.TryParse(numberBox1.Text, out num1);
+            if (success)
+            {
+                resultLabel.Text = Math.Tan(num1).ToString();
+            }
+            else
+            {
+                MessageBox.Show("数字以外が入力されています");
+            }
+        }
+
+        private void MPlusButton_Click(object sender, EventArgs e)
+        {
+            bool success = double.TryParse(numberBox1.Text, out num1);
+            if (success)
+            {
+                var result = double.Parse(MemoryLabel.Text) + double.Parse(numberBox1.Text);
+                MemoryLabel.Text = result.ToString();
+            }
+            else
+            {
+                MessageBox.Show("数字以外が入力されています");
+            }
         }
     }
 }
