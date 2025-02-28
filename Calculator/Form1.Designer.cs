@@ -1,6 +1,6 @@
 ﻿namespace Calculator
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// 必要なデザイナー変数です。
@@ -54,6 +54,13 @@
             this.MMInusButton = new System.Windows.Forms.Button();
             this.MRButton = new System.Windows.Forms.Button();
             this.MCButton = new System.Windows.Forms.Button();
+            this.MeanButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CountLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.PercentButton = new System.Windows.Forms.Button();
+            this.ResultListBox = new System.Windows.Forms.ListBox();
+            this.GameChangeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // numberBox1
@@ -67,7 +74,7 @@
             // 
             this.numberBox2.Location = new System.Drawing.Point(90, 103);
             this.numberBox2.Name = "numberBox2";
-            this.numberBox2.Size = new System.Drawing.Size(152, 22);
+            this.numberBox2.Size = new System.Drawing.Size(155, 22);
             this.numberBox2.TabIndex = 1;
             // 
             // AdditionButton
@@ -116,9 +123,9 @@
             // 
             // ResetButton
             // 
-            this.ResetButton.Location = new System.Drawing.Point(546, 376);
+            this.ResetButton.Location = new System.Drawing.Point(655, 387);
             this.ResetButton.Name = "ResetButton";
-            this.ResetButton.Size = new System.Drawing.Size(79, 29);
+            this.ResetButton.Size = new System.Drawing.Size(85, 30);
             this.ResetButton.TabIndex = 6;
             this.ResetButton.Text = "リセット";
             this.ResetButton.UseVisualStyleBackColor = true;
@@ -127,10 +134,10 @@
             // resultLabel
             // 
             this.resultLabel.AutoSize = true;
-            this.resultLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.resultLabel.Location = new System.Drawing.Point(343, 40);
+            this.resultLabel.Font = new System.Drawing.Font("MS UI Gothic", 13F);
+            this.resultLabel.Location = new System.Drawing.Point(341, 71);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(89, 20);
+            this.resultLabel.Size = new System.Drawing.Size(98, 22);
             this.resultLabel.TabIndex = 7;
             this.resultLabel.Text = "計算結果";
             // 
@@ -250,7 +257,7 @@
             // 
             this.IntoXButton.Location = new System.Drawing.Point(72, 149);
             this.IntoXButton.Name = "IntoXButton";
-            this.IntoXButton.Size = new System.Drawing.Size(92, 23);
+            this.IntoXButton.Size = new System.Drawing.Size(90, 30);
             this.IntoXButton.TabIndex = 19;
             this.IntoXButton.Text = "結果をXへ";
             this.IntoXButton.UseVisualStyleBackColor = true;
@@ -260,7 +267,7 @@
             // 
             this.IntoYButton.Location = new System.Drawing.Point(170, 149);
             this.IntoYButton.Name = "IntoYButton";
-            this.IntoYButton.Size = new System.Drawing.Size(92, 23);
+            this.IntoYButton.Size = new System.Drawing.Size(90, 30);
             this.IntoYButton.TabIndex = 20;
             this.IntoYButton.Text = "結果をYへ";
             this.IntoYButton.UseVisualStyleBackColor = true;
@@ -269,9 +276,10 @@
             // MemoryLabel
             // 
             this.MemoryLabel.AutoSize = true;
-            this.MemoryLabel.Location = new System.Drawing.Point(557, 45);
+            this.MemoryLabel.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.MemoryLabel.Location = new System.Drawing.Point(622, 80);
             this.MemoryLabel.Name = "MemoryLabel";
-            this.MemoryLabel.Size = new System.Drawing.Size(15, 15);
+            this.MemoryLabel.Size = new System.Drawing.Size(17, 17);
             this.MemoryLabel.TabIndex = 21;
             this.MemoryLabel.Text = "0";
             // 
@@ -293,7 +301,7 @@
             this.MMInusButton.TabIndex = 23;
             this.MMInusButton.Text = "M-";
             this.MMInusButton.UseVisualStyleBackColor = true;
-            this.MMInusButton.Click += new System.EventHandler(this.MMInusButton_Click);
+            this.MMInusButton.Click += new System.EventHandler(this.MMinusButton_Click);
             // 
             // MRButton
             // 
@@ -303,6 +311,7 @@
             this.MRButton.TabIndex = 24;
             this.MRButton.Text = "MR";
             this.MRButton.UseVisualStyleBackColor = true;
+            this.MRButton.Click += new System.EventHandler(this.MRButton_Click);
             // 
             // MCButton
             // 
@@ -314,11 +323,86 @@
             this.MCButton.UseVisualStyleBackColor = true;
             this.MCButton.Click += new System.EventHandler(this.MCButton_Click);
             // 
-            // Form1
+            // MeanButton
+            // 
+            this.MeanButton.Location = new System.Drawing.Point(546, 387);
+            this.MeanButton.Name = "MeanButton";
+            this.MeanButton.Size = new System.Drawing.Size(70, 30);
+            this.MeanButton.TabIndex = 26;
+            this.MeanButton.Text = "mean";
+            this.MeanButton.UseVisualStyleBackColor = true;
+            this.MeanButton.Click += new System.EventHandler(this.MeanButton_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(546, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 15);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "入力数";
+            // 
+            // CountLabel
+            // 
+            this.CountLabel.AutoSize = true;
+            this.CountLabel.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.CountLabel.Location = new System.Drawing.Point(622, 117);
+            this.CountLabel.Name = "CountLabel";
+            this.CountLabel.Size = new System.Drawing.Size(17, 17);
+            this.CountLabel.TabIndex = 28;
+            this.CountLabel.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(547, 80);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 15);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "メモリー値";
+            // 
+            // PercentButton
+            // 
+            this.PercentButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.PercentButton.Location = new System.Drawing.Point(72, 408);
+            this.PercentButton.Name = "PercentButton";
+            this.PercentButton.Size = new System.Drawing.Size(45, 30);
+            this.PercentButton.TabIndex = 30;
+            this.PercentButton.Text = "%";
+            this.PercentButton.UseVisualStyleBackColor = true;
+            this.PercentButton.Click += new System.EventHandler(this.PercentButton_Click);
+            // 
+            // ResultListBox
+            // 
+            this.ResultListBox.FormattingEnabled = true;
+            this.ResultListBox.ItemHeight = 15;
+            this.ResultListBox.Location = new System.Drawing.Point(309, 103);
+            this.ResultListBox.Name = "ResultListBox";
+            this.ResultListBox.Size = new System.Drawing.Size(130, 49);
+            this.ResultListBox.TabIndex = 31;
+            // 
+            // GameChangeButton
+            // 
+            this.GameChangeButton.Location = new System.Drawing.Point(341, 402);
+            this.GameChangeButton.Name = "GameChangeButton";
+            this.GameChangeButton.Size = new System.Drawing.Size(100, 30);
+            this.GameChangeButton.TabIndex = 32;
+            this.GameChangeButton.Text = "GAME";
+            this.GameChangeButton.UseVisualStyleBackColor = true;
+            this.GameChangeButton.Click += new System.EventHandler(this.GameChangeButton_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.GameChangeButton);
+            this.Controls.Add(this.ResultListBox);
+            this.Controls.Add(this.PercentButton);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.CountLabel);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.MeanButton);
             this.Controls.Add(this.MCButton);
             this.Controls.Add(this.MRButton);
             this.Controls.Add(this.MMInusButton);
@@ -345,8 +429,10 @@
             this.Controls.Add(this.AdditionButton);
             this.Controls.Add(this.numberBox2);
             this.Controls.Add(this.numberBox1);
-            this.Name = "Form1";
+            this.KeyPreview = true;
+            this.Name = "MainForm";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,6 +466,13 @@
         private System.Windows.Forms.Button MMInusButton;
         private System.Windows.Forms.Button MRButton;
         private System.Windows.Forms.Button MCButton;
+        private System.Windows.Forms.Button MeanButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label CountLabel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button PercentButton;
+        private System.Windows.Forms.ListBox ResultListBox;
+        private System.Windows.Forms.Button GameChangeButton;
     }
 }
 
