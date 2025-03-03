@@ -321,6 +321,11 @@ namespace Calculator
 
             else if (e.KeyCode == Keys.S && isGamePressed)
             {
+                string str = GameBox.Text;
+                if(numberBox1.Text)
+                str.Replace(numberBox1.Text, "");
+                score += 10;
+                timer1.Interval -= 50;
 
             }
         }
@@ -330,7 +335,6 @@ namespace Calculator
             timer1.Interval = 3000;
             Random rnd = new Random();
             GameBox.Text += (rnd.Next(10).ToString());
-            timer1.Interval -= 50;
 
             if (GameBox.Text.Length == 10)
             {
