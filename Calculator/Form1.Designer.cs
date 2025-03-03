@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.numberBox1 = new System.Windows.Forms.TextBox();
             this.numberBox2 = new System.Windows.Forms.TextBox();
             this.AdditionButton = new System.Windows.Forms.Button();
@@ -59,8 +60,11 @@
             this.CountLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.PercentButton = new System.Windows.Forms.Button();
-            this.ResultListBox = new System.Windows.Forms.ListBox();
+            this.ListBox = new System.Windows.Forms.ListBox();
             this.GameChangeButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.GameBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // numberBox1
@@ -372,14 +376,15 @@
             this.PercentButton.UseVisualStyleBackColor = true;
             this.PercentButton.Click += new System.EventHandler(this.PercentButton_Click);
             // 
-            // ResultListBox
+            // ListBox
             // 
-            this.ResultListBox.FormattingEnabled = true;
-            this.ResultListBox.ItemHeight = 15;
-            this.ResultListBox.Location = new System.Drawing.Point(309, 103);
-            this.ResultListBox.Name = "ResultListBox";
-            this.ResultListBox.Size = new System.Drawing.Size(130, 49);
-            this.ResultListBox.TabIndex = 31;
+            this.ListBox.FormattingEnabled = true;
+            this.ListBox.ItemHeight = 15;
+            this.ListBox.Location = new System.Drawing.Point(321, 147);
+            this.ListBox.MultiColumn = true;
+            this.ListBox.Name = "ListBox";
+            this.ListBox.Size = new System.Drawing.Size(130, 49);
+            this.ListBox.TabIndex = 31;
             // 
             // GameChangeButton
             // 
@@ -391,13 +396,27 @@
             this.GameChangeButton.UseVisualStyleBackColor = true;
             this.GameChangeButton.Click += new System.EventHandler(this.GameChangeButton_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // GameBox
+            // 
+            this.GameBox.Location = new System.Drawing.Point(312, 114);
+            this.GameBox.Name = "GameBox";
+            this.GameBox.Size = new System.Drawing.Size(149, 22);
+            this.GameBox.TabIndex = 33;
+            this.GameBox.Text = "GAME用";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.GameBox);
             this.Controls.Add(this.GameChangeButton);
-            this.Controls.Add(this.ResultListBox);
+            this.Controls.Add(this.ListBox);
             this.Controls.Add(this.PercentButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.CountLabel);
@@ -471,8 +490,11 @@
         private System.Windows.Forms.Label CountLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button PercentButton;
-        private System.Windows.Forms.ListBox ResultListBox;
+        private System.Windows.Forms.ListBox ListBox;
         private System.Windows.Forms.Button GameChangeButton;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.TextBox GameBox;
     }
 }
 

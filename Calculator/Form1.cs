@@ -17,16 +17,18 @@ namespace Calculator
         private int num;
         private int count;
         private bool isGamePressed = false;
+        private int score = 0;
+
         public MainForm()
         {
             InitializeComponent();
-            this.KeyDown += Test;
+            //this.KeyDown += Test;
         }
 
-        private void Test(object sender, KeyEventArgs e)
-        {
-            MessageBox.Show("ooo");
-        }
+        //private void Test(object sender, KeyEventArgs e)
+        //{
+        //    MessageBox.Show("ooo");
+        //}
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
@@ -295,6 +297,8 @@ namespace Calculator
         {
             isGamePressed = true;
             numberBox1.Text = "0";
+            GameBox.Text = "";
+            timer1.Start();
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
@@ -303,14 +307,43 @@ namespace Calculator
             {
                 var x = int.Parse(numberBox1.Text);
                 x += 1;
+                if (x > 9) { x = 0; }
                 numberBox1.Text = x.ToString();
+
             }
             else if (e.KeyCode == Keys.Down && isGamePressed)
             {
                 var x = int.Parse(numberBox1.Text);
                 x -= 1;
+                if (x < 0) { x = 9; }
                 numberBox1.Text = x.ToString();
             }
+
+            else if (e.KeyCode == Keys.S && isGamePressed)
+            {
+
+            }
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Interval = 3000;
+            Random rnd = new Random();
+            GameBox.Text += (rnd.Next(10).ToString());
+            timer1.Interval -= 50;
+
+            if (GameBox.Text.Length == 10)
+            {
+                isGameOver();
+            }
+        }
+
+        private void isGameOver()
+        {
+            isGamePressed = false;
+            timer1.Stop();
+            timer2.Stop();
+            MessageBox.Show("ゲームオーバー");
         }
     }
 }
