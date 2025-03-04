@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Calculator
 {
@@ -35,8 +36,9 @@ namespace Calculator
             numberBox1.Text = "";
             numberBox2.Text = "";
             count = 0;
-            resultLabel.Text = "結果";
+            resultLabel.Text = "計算結果";
             isGamePressed = false;
+            GameBox.Text = "GAME用表示";
         }
         private void IntoXButton_Click(object sender, EventArgs e)
         {
@@ -297,45 +299,54 @@ namespace Calculator
         {
             isGamePressed = true;
             numberBox1.Text = "0";
+            numberBox2.Text = "0";
             GameBox.Text = "";
             timer1.Start();
         }
-
-        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (e.KeyCode == Keys.Up && isGamePressed)
+            if (keyData == Keys.Up)
             {
                 var x = int.Parse(numberBox1.Text);
                 x += 1;
                 if (x > 9) { x = 0; }
                 numberBox1.Text = x.ToString();
-
+                return true;
             }
-            else if (e.KeyCode == Keys.Down && isGamePressed)
+            else if (keyData == Keys.Down)
             {
                 var x = int.Parse(numberBox1.Text);
                 x -= 1;
                 if (x < 0) { x = 9; }
                 numberBox1.Text = x.ToString();
+                return true;
             }
-
-            else if (e.KeyCode == Keys.S && isGamePressed)
+            else if (keyData == Keys.S)
             {
                 string str = GameBox.Text;
-                if(numberBox1.Text)
-                str.Replace(numberBox1.Text, "");
-                score += 10;
-                timer1.Interval -= 50;
-
+                if (numberBox1.Text == "0")
+                {
+                    var result = str.Replace("0", "");
+                    GameBox.Text = result;
+                    if (result.Length < str.Length)
+                    {
+                        score += 10;
+                        numberBox2.Text=score.ToString();
+                    }
+                }
+                return true;
             }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Interval = 3000;
             Random rnd = new Random();
-            GameBox.Text += (rnd.Next(10).ToString());
-
+            GameBox.Text += (rnd.Next(2).ToString());
             if (GameBox.Text.Length == 10)
             {
                 isGameOver();
