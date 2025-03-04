@@ -305,7 +305,7 @@ namespace Calculator
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == Keys.Up)
+            if (keyData == Keys.Up && isGamePressed == true)
             {
                 var x = int.Parse(numberBox1.Text);
                 x += 1;
@@ -313,7 +313,7 @@ namespace Calculator
                 numberBox1.Text = x.ToString();
                 return true;
             }
-            else if (keyData == Keys.Down)
+            else if (keyData == Keys.Down && isGamePressed == true)
             {
                 var x = int.Parse(numberBox1.Text);
                 x -= 1;
@@ -321,7 +321,7 @@ namespace Calculator
                 numberBox1.Text = x.ToString();
                 return true;
             }
-            else if (keyData == Keys.S)
+            else if (keyData == Keys.S && isGamePressed == true)
             {
                 string str = GameBox.Text;
                 if (numberBox1.Text == "0")
@@ -331,8 +331,142 @@ namespace Calculator
                     if (result.Length < str.Length)
                     {
                         score += 10;
-                        numberBox2.Text=score.ToString();
+                        numberBox2.Text = score.ToString();
                     }
+                    else
+                    {
+                        score -= 20;
+                    }
+                }
+                else if (numberBox1.Text == "1")
+                {
+                    var result = str.Replace("1", "");
+                    GameBox.Text = result;
+                    if (result.Length < str.Length)
+                    {
+                        score += 10;
+                        numberBox2.Text = score.ToString();
+                    }
+                    else
+                    {
+                        score -= 20;
+                    }
+                }
+                else if (numberBox1.Text == "2")
+                {
+                    var result = str.Replace("2", "");
+                    GameBox.Text = result;
+                    if (result.Length < str.Length)
+                    {
+                        score += 10;
+                        numberBox2.Text = score.ToString();
+                    }
+                    else
+                    {
+                        score -= 20;
+                    }
+                }
+                else if (numberBox1.Text == "3")
+                {
+                    var result = str.Replace("3", "");
+                    GameBox.Text = result;
+                    if (result.Length < str.Length)
+                    {
+                        score += 10;
+                        numberBox2.Text = score.ToString();
+                    }
+                    else
+                    {
+                        score -= 20;
+                    }
+                }
+                else if (numberBox1.Text == "4")
+                {
+                    var result = str.Replace("4", "");
+                    GameBox.Text = result;
+                    if (result.Length < str.Length)
+                    {
+                        score += 10;
+                        numberBox2.Text = score.ToString();
+                    }
+                    else
+                    {
+                        score -= 20;
+                    }
+                }
+                else if (numberBox1.Text == "5")
+                {
+                    var result = str.Replace("5", "");
+                    GameBox.Text = result;
+                    if (result.Length < str.Length)
+                    {
+                        score += 10;
+                        numberBox2.Text = score.ToString();
+                    }
+                    else
+                    {
+                        score -= 20;
+                    }
+                }
+                else if (numberBox1.Text == "6")
+                {
+                    var result = str.Replace("6", "");
+                    GameBox.Text = result;
+                    if (result.Length < str.Length)
+                    {
+                        score += 10;
+                        numberBox2.Text = score.ToString();
+                    }
+                    else
+                    {
+                        score -= 20;
+                    }
+                }
+                else if (numberBox1.Text == "7")
+                {
+                    var result = str.Replace("7", "");
+                    GameBox.Text = result;
+                    if (result.Length < str.Length)
+                    {
+                        score += 10;
+                        numberBox2.Text = score.ToString();
+                    }
+                    else
+                    {
+                        score -= 20;
+                    }
+                }
+                else if (numberBox1.Text == "8")
+                {
+                    var result = str.Replace("8", "");
+                    GameBox.Text = result;
+                    if (result.Length < str.Length)
+                    {
+                        score += 10;
+                        numberBox2.Text = score.ToString();
+                    }
+                    else
+                    {
+                        score -= 20;
+                    }
+                }
+                else if (numberBox1.Text == "9")
+                {
+                    var result = str.Replace("9", "");
+                    GameBox.Text = result;
+                    if (result.Length < str.Length)
+                    {
+                        score += 10;
+                        numberBox2.Text = score.ToString();
+                    }
+                    else
+                    {
+                        score -= 20;
+                    }
+                }
+                if (timer1.Interval > 300)
+                {
+                    timer1.Interval -= 30;
                 }
                 return true;
             }
@@ -346,7 +480,7 @@ namespace Calculator
         private void Timer1_Tick(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            GameBox.Text += (rnd.Next(2).ToString());
+            GameBox.Text += (rnd.Next(10).ToString());
             if (GameBox.Text.Length == 10)
             {
                 isGameOver();
