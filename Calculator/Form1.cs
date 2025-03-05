@@ -350,7 +350,7 @@ namespace Calculator
                     GameBox.Text = result;
                     if (result.Length < str.Length)
                     {
-                        score += 10;
+                        score += 10 * (str.Length - result.Length);
                         numberBox2.Text = score.ToString();
                     }
                     else
@@ -364,7 +364,7 @@ namespace Calculator
                     GameBox.Text = result;
                     if (result.Length < str.Length)
                     {
-                        score += 10;
+                        score += 10 * (str.Length - result.Length);
                         numberBox2.Text = score.ToString();
                     }
                     else
@@ -378,7 +378,7 @@ namespace Calculator
                     GameBox.Text = result;
                     if (result.Length < str.Length)
                     {
-                        score += 10;
+                        score += 10 * (str.Length - result.Length);
                         numberBox2.Text = score.ToString();
                     }
                     else
@@ -392,7 +392,7 @@ namespace Calculator
                     GameBox.Text = result;
                     if (result.Length < str.Length)
                     {
-                        score += 10;
+                        score += 10 * (str.Length - result.Length);
                         numberBox2.Text = score.ToString();
                     }
                     else
@@ -406,7 +406,7 @@ namespace Calculator
                     GameBox.Text = result;
                     if (result.Length < str.Length)
                     {
-                        score += 10;
+                        score += 10 * (str.Length - result.Length);
                         numberBox2.Text = score.ToString();
                     }
                     else
@@ -420,7 +420,7 @@ namespace Calculator
                     GameBox.Text = result;
                     if (result.Length < str.Length)
                     {
-                        score += 10;
+                        score += 10 * (str.Length - result.Length);
                         numberBox2.Text = score.ToString();
                     }
                     else
@@ -434,7 +434,7 @@ namespace Calculator
                     GameBox.Text = result;
                     if (result.Length < str.Length)
                     {
-                        score += 10;
+                        score += 10 * (str.Length - result.Length);
                         numberBox2.Text = score.ToString();
                     }
                     else
@@ -448,7 +448,7 @@ namespace Calculator
                     GameBox.Text = result;
                     if (result.Length < str.Length)
                     {
-                        score += 10;
+                        score += 10 * (str.Length - result.Length);
                         numberBox2.Text = score.ToString();
                     }
                     else
@@ -462,7 +462,7 @@ namespace Calculator
                     GameBox.Text = result;
                     if (result.Length < str.Length)
                     {
-                        score += 10;
+                        score += 10 * (str.Length - result.Length);
                         numberBox2.Text = score.ToString();
                     }
                     else
@@ -476,7 +476,7 @@ namespace Calculator
                     GameBox.Text = result;
                     if (result.Length < str.Length)
                     {
-                        score += 10;
+                        score += 10 * (str.Length - result.Length);
                         numberBox2.Text = score.ToString();
                     }
                     else
@@ -492,7 +492,7 @@ namespace Calculator
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-
+        //タイマーでランダムな数字追加
         private void Timer1_Tick(object sender, EventArgs e)
         {
             Random rnd = new Random();
