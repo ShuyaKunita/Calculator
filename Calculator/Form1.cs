@@ -19,17 +19,12 @@ namespace Calculator
         private int count;
         private bool isGamePressed = false;
         private int score = 0;
+        private bool textBoxForcus = true;
 
         public MainForm()
         {
             InitializeComponent();
-            //this.KeyDown += Test;
         }
-
-        //private void Test(object sender, KeyEventArgs e)
-        //{
-        //    MessageBox.Show("ooo");
-        //}
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
@@ -235,11 +230,11 @@ namespace Calculator
             bool success = double.TryParse(numberBox1.Text, out num1);
             if (success)
             {
-                var result = double.Parse(MemoryLabel.Text) + double.Parse(numberBox1.Text);
-                MemoryLabel.Text = result.ToString();
+                var result = double.Parse(memoryLabel.Text) + double.Parse(numberBox1.Text);
+                memoryLabel.Text = result.ToString();
                 numberBox1.Text = "";
                 count++;
-                CountLabel.Text = count.ToString();
+                countLabel.Text = count.ToString();
             }
             else
             {
@@ -252,11 +247,11 @@ namespace Calculator
             bool success = double.TryParse(numberBox1.Text, out num1);
             if (success)
             {
-                var result = double.Parse(MemoryLabel.Text) - double.Parse(numberBox1.Text);
-                MemoryLabel.Text = result.ToString();
+                var result = double.Parse(memoryLabel.Text) - double.Parse(numberBox1.Text);
+                memoryLabel.Text = result.ToString();
                 numberBox1.Text = "";
                 count++;
-                CountLabel.Text = count.ToString();
+                countLabel.Text = count.ToString();
             }
             else
             {
@@ -266,26 +261,51 @@ namespace Calculator
         // MCボタン
         private void MCButton_Click(object sender, EventArgs e)
         {
-            MemoryLabel.Text = "0";
+            memoryLabel.Text = "0";
+            countLabel.Text = "0";
         }
         // MRボタン
         private void MRButton_Click(object sender, EventArgs e)
         {
-            resultLabel.Text = MemoryLabel.Text;
+            resultLabel.Text = memoryLabel.Text;
         }
         // 平均値計算
         private void MeanButton_Click(object sender, EventArgs e)
         {
-            var result = double.Parse(MemoryLabel.Text) / count;
-            resultLabel.Text = result.ToString();
+            bool success1 = double.TryParse(memoryLabel.Text, out num1);
+            bool success2 = double.TryParse(countLabel.Text, out num2);
+            if (success1 && success2)
+            {
+                var result = double.Parse(memoryLabel.Text) / count;
+                resultLabel.Text = result.ToString();
+            }
+            else
+            {
+                MessageBox.Show("数字が入力されていません");
+            }
         }
-        // XのY割引表示（小数点以下切り捨て）Yはパーセントで入力すること
+        // XのYパーセント表示
         private void PercentButton_Click(object sender, EventArgs e)
         {
             bool success1 = double.TryParse(numberBox1.Text, out num1);
             bool success2 = double.TryParse(numberBox2.Text, out num2);
 
-            if (success1 && success2)
+            if (success1 && success2 && num2 < 100)
+            {
+                resultLabel.Text = ((int)(num1 * num2 / 100)).ToString();
+            }
+            else
+            {
+                MessageBox.Show("数字以外が入力されています");
+            }
+        }
+        // XのY割引表示（小数点以下切り捨て）Yはパーセントで入力すること
+        private void PercentOffButton_Click(object sender, EventArgs e)
+        {
+            bool success1 = double.TryParse(numberBox1.Text, out num1);
+            bool success2 = double.TryParse(numberBox2.Text, out num2);
+
+            if (success1 && success2 && num2 < 100)
             {
                 resultLabel.Text = ((int)(num1 * (100 - num2) / 100)).ToString();
             }
@@ -464,17 +484,13 @@ namespace Calculator
                         score -= 20;
                     }
                 }
-                if (timer1.Interval > 300)
+                if (timer1.Interval > 500)
                 {
-                    timer1.Interval -= 30;
+                    timer1.Interval -= 20;
                 }
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
-        }
-        private void MainForm_KeyDown(object sender, KeyEventArgs e)
-        {
-
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -491,8 +507,107 @@ namespace Calculator
         {
             isGamePressed = false;
             timer1.Stop();
-            timer2.Stop();
             MessageBox.Show("ゲームオーバー");
+        }
+
+        private void ZeroButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxForcus == true)
+            {
+                numberBox1.Text = numberBox1.Text + "0";
+            }
+            else { numberBox2.Text = numberBox2.Text + "0"; }
+        }
+
+        private void OneButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxForcus == true)
+            {
+                numberBox1.Text = numberBox1.Text + "1";
+            }
+            else { numberBox2.Text = numberBox2.Text + "1"; }
+        }
+
+        private void TwoButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxForcus == true)
+            {
+                numberBox1.Text = numberBox1.Text + "2";
+            }
+            else { numberBox2.Text = numberBox2.Text + "2"; }
+        }
+
+        private void ThreeButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxForcus == true)
+            {
+                numberBox1.Text = numberBox1.Text + "3";
+            }
+            else { numberBox2.Text = numberBox2.Text + "3"; }
+        }
+
+        private void FourButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxForcus == true)
+            {
+                numberBox1.Text = numberBox1.Text + "4";
+            }
+            else { numberBox2.Text = numberBox2.Text + "4"; }
+        }
+
+        private void FiveButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxForcus == true)
+            {
+                numberBox1.Text = numberBox1.Text + "5";
+            }
+            else { numberBox2.Text = numberBox2.Text + "5"; }
+        }
+
+        private void SixButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxForcus == true)
+            {
+                numberBox1.Text = numberBox1.Text + "6";
+            }
+            else { numberBox2.Text = numberBox2.Text + "6"; }
+        }
+
+        private void SevenButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxForcus == true)
+            {
+                numberBox1.Text = numberBox1.Text + "7";
+            }
+            else { numberBox2.Text = numberBox2.Text + "7"; }
+        }
+
+        private void EightButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxForcus == true)
+            {
+                numberBox1.Text = numberBox1.Text + "8";
+            }
+            else { numberBox2.Text = numberBox2.Text + "8"; }
+        }
+
+        private void NineButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxForcus == true)
+            {
+                numberBox1.Text = numberBox1.Text + "9";
+            }
+            else { numberBox2.Text = numberBox2.Text + "9"; }
+        }
+
+        private void xButton_Click(object sender, EventArgs e)
+        {
+            if (!textBoxForcus) { textBoxForcus = true; }
+        }
+
+        private void yButton_Click(object sender, EventArgs e)
+        {
+            if (textBoxForcus) { textBoxForcus = false; }
         }
     }
 }
