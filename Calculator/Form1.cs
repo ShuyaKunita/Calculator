@@ -323,6 +323,8 @@ namespace Calculator
             GameBox.Text = "";
             timer1.Start();
         }
+
+        // GAME用キー入力
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Up && isGamePressed == true)
@@ -356,6 +358,7 @@ namespace Calculator
                     else
                     {
                         score -= 20;
+                        numberBox2.Text = score.ToString();
                     }
                 }
                 else if (numberBox1.Text == "1")
@@ -370,6 +373,7 @@ namespace Calculator
                     else
                     {
                         score -= 20;
+                        numberBox2.Text = score.ToString();
                     }
                 }
                 else if (numberBox1.Text == "2")
@@ -384,6 +388,7 @@ namespace Calculator
                     else
                     {
                         score -= 20;
+                        numberBox2.Text = score.ToString();
                     }
                 }
                 else if (numberBox1.Text == "3")
@@ -398,6 +403,7 @@ namespace Calculator
                     else
                     {
                         score -= 20;
+                        numberBox2.Text = score.ToString();
                     }
                 }
                 else if (numberBox1.Text == "4")
@@ -412,6 +418,7 @@ namespace Calculator
                     else
                     {
                         score -= 20;
+                        numberBox2.Text = score.ToString();
                     }
                 }
                 else if (numberBox1.Text == "5")
@@ -426,6 +433,7 @@ namespace Calculator
                     else
                     {
                         score -= 20;
+                        numberBox2.Text = score.ToString();
                     }
                 }
                 else if (numberBox1.Text == "6")
@@ -440,6 +448,7 @@ namespace Calculator
                     else
                     {
                         score -= 20;
+                        numberBox2.Text = score.ToString();
                     }
                 }
                 else if (numberBox1.Text == "7")
@@ -454,6 +463,7 @@ namespace Calculator
                     else
                     {
                         score -= 20;
+                        numberBox2.Text = score.ToString();
                     }
                 }
                 else if (numberBox1.Text == "8")
@@ -468,6 +478,7 @@ namespace Calculator
                     else
                     {
                         score -= 20;
+                        numberBox2.Text = score.ToString();
                     }
                 }
                 else if (numberBox1.Text == "9")
@@ -482,6 +493,7 @@ namespace Calculator
                     else
                     {
                         score -= 20;
+                        numberBox2.Text = score.ToString();
                     }
                 }
                 if (timer1.Interval > 500)
@@ -507,6 +519,8 @@ namespace Calculator
         {
             isGamePressed = false;
             timer1.Stop();
+            int value = Math.Max(int.Parse(numberBox2.Text), int.Parse(hiScoreLabel.Text));
+            hiScoreLabel.Text = value.ToString();
             MessageBox.Show("ゲームオーバー");
         }
 
