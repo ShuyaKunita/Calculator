@@ -1,8 +1,11 @@
 # WinForm Calcultor プロジェクト
 
 ## プロジェクト概要
-WinForm を使用して電卓を実装します。  
-- **README.md**： このドキュメント
+WinForm を使用して電卓を実装しました。
+
+息抜きのゲーム機能も実装しています。
+![image](https://github.com/user-attachments/assets/7d57c3bc-98a0-4c46-b5cc-a1021a0cbeac)
+
 
 ## 機能紹介
 **計算機能**\
