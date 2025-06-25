@@ -3,8 +3,15 @@
 ## プロジェクト概要
 WinForm を使用して電卓を実装しました。
 
-息抜きのゲーム機能も実装しています。
 ![image](https://github.com/user-attachments/assets/7d57c3bc-98a0-4c46-b5cc-a1021a0cbeac)
+
+息抜きのゲーム機能も実装しています。
+
+☆ゲームプレイ動画
+
+
+https://github.com/user-attachments/assets/060d971a-6a56-4207-a5e4-a572d0ccd3b7
+
 
 ## 環境
 ・開発言語：C＃
